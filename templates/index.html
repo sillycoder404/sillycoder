@@ -3,11 +3,14 @@
 <head>
     <title>College Attendance Management System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <a href="/truth">View Truth Table</a>
-
 </head>
 <body>
     <div class="container">
+        <!-- Sliding Truth Table link -->
+        <marquee behavior="scroll" direction="left">
+            <a href="/truth">View Truth Table</a>
+        </marquee>
+
         <h2>Exam Eligibility Checker</h2>
         <form method="POST">
             <label>Attendance (%):</label>
@@ -21,15 +24,15 @@
 
             <label>No Disciplinary Action?</label>
             <input type="checkbox" name="discipline" value="yes"><br>
+
             <label>Medical Certificate?</label>
             <input type="checkbox" name="medical" value="yes"><br>
-
 
             <button type="submit">Check Eligibility</button>
         </form>
 
         {% if result %}
-            <div class="result">{{ result }}</div>
+        <div class="result">{{ result }}</div>
         {% endif %}
     </div>
 </body>

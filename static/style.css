@@ -11,23 +11,6 @@ body {
   background: linear-gradient(to right, #061a7b, #8091dd); /* gradient background */
 }
 
-/* Sliding marquee link */
-marquee {
-  margin: 0;
-  padding: 10px;
-  font-weight: bold;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-}
-marquee a {
-  color: #00ff51;
-  text-decoration: none;
-  font-size: 18px;
-}
-marquee a:hover {
-  color: rgb(190, 61, 28);
-}
-
 /* Centered container for form */
 .container {
   background-color: rgba(0, 0, 0, 0.7); /* semi-transparent box */
@@ -39,7 +22,19 @@ marquee a:hover {
   color: white;
   margin-top: 40px; /* space below marquee */
 }
-
+.container marquee {
+  margin-bottom: 15px;
+  font-weight: bold;
+  width: 100%;
+}
+.container marquee a {
+  color: #138c45;
+  text-decoration: none;
+  font-size: 18px;
+}
+.container marquee a:hover {
+  color: rgb(214, 35, 12);
+}
 /* Heading */
 h2 {
   color: #fff;

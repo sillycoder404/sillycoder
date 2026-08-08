@@ -2,6 +2,9 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+# -------------------------------
+# Route 1: Eligibility Checker
+# -------------------------------
 @app.route("/", methods=["GET", "POST"])
 def check_eligibility():
     result = None
@@ -11,18 +14,23 @@ def check_eligibility():
         fee_paid = request.form.get("fee") == "yes"
         assignment_submitted = request.form.get("assignment") == "yes"
         no_disciplinary = request.form.get("discipline") == "yes"
+        medical_certificate = request.form.get("medical") == "yes"
 
-        # Logic: Eligibility = p ∧ q ∧ r ∧ s
-        eligible = (attendance >= 75 and fee_paid and assignment_submitted and no_disciplinary)
+        # Logic:
+        # Eligible if (attendance ≥ 75 and all conditions true)
+        # OR (attendance ≥ 65 with medical certificate and all conditions true)
+        eligible = ((attendance >= 75 and fee_paid and assignment_submitted and no_disciplinary) or
+                    (attendance >= 65 and medical_certificate and fee_paid and assignment_submitted and no_disciplinary))
+
         result = "✅ Eligible for exam" if eligible else "❌ Not eligible"
 
     return render_template("index.html", result=result)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# -------------------------------
+# Route 2: Truth Table Generator
+# -------------------------------
 @app.route("/truth")
 def truth_table():
-    # Propositions: p, q, r, s
     table = []
     for p in [True, False]:
         for q in [True, False]:
@@ -30,24 +38,16 @@ def truth_table():
                 for s in [True, False]:
                     eligible = p and q and r and s
                     table.append({
-                        "p": p, "q": q, "r": r, "s": s,
+                        "p": p,
+                        "q": q,
+                        "r": r,
+                        "s": s,
                         "eligible": eligible
                     })
     return render_template("truth.html", table=table)
-@app.route("/", methods=["GET", "POST"])
-def check_eligibility():
-    result = None
-    if request.method == "POST":
-        attendance = int(request.form["attendance"])
-        fee_paid = request.form.get("fee") == "yes"
-        assignment_submitted = request.form.get("assignment") == "yes"
-        no_disciplinary = request.form.get("discipline") == "yes"
-        medical_certificate = request.form.get("medical") == "yes"
 
-        # Logic: (p ∧ q ∧ r ∧ s) ∨ (m ∧ q ∧ r ∧ s ∧ attendance ≥65)
-        eligible = ((attendance >= 75 and fee_paid and assignment_submitted and no_disciplinary) or
-                    (attendance >= 65 and medical_certificate and fee_paid and assignment_submitted and no_disciplinary))
-
-        result = "✅ Eligible for exam" if eligible else "❌ Not eligible"
-
-    return render_template("index.html", result=result)
+# -------------------------------
+# Entry Point
+# -------------------------------
+if __name__ == "__main__":
+    app.run()

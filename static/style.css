@@ -27,14 +27,22 @@ body {
   font-weight: bold;
   width: 100%;
 }
+.container marquee {
+  margin-bottom: 15px;
+  font-weight: bold;
+  width: 100%;
+}
+
 .container marquee a {
-  color: #138c45;
+  color: #049138;
   text-decoration: none;
   font-size: 18px;
 }
+
 .container marquee a:hover {
-  color: rgb(214, 35, 12);
+  color: rgb(231, 26, 7);
 }
+
 /* Heading */
 h2 {
   color: #fff;

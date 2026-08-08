@@ -1,89 +1,93 @@
+/* Full-screen background */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #061a7b, #8091dd);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* allow marquee at top, form below */
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(to right, #061a7b, #8091dd); /* gradient background */
 }
 
-.container {
-   .container {
-    background-color: rgba(0, 0, 0, 0.7); 
-    padding: 30px;
-    border-radius: 12px;
-    width: 80%;          
-    max-width: 600px;    
-    text-align: center;
-    color: white;
-}
-
-
-h2 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-    display: block;
-    margin-top: 10px;
-}
-
-input[type="number"], input[type="checkbox"] {
-    margin: 5px 0;
-}
-
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #4CAF50;
-    color: rgb(167, 49, 49);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+/* Sliding marquee link */
 marquee {
-    margin-bottom: 20px;
-    font-weight: bold;
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+marquee a {
+  color: #00ff51;
+  text-decoration: none;
+  font-size: 18px;
 }
 marquee a:hover {
-    color: yellow;
+  color: rgb(190, 61, 28);
 }
 
+/* Centered container for form */
+.container {
+  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent box */
+  padding: 30px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  margin-top: 40px; /* space below marquee */
+}
+
+/* Heading */
+h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Labels and inputs */
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+input[type="number"], input[type="checkbox"] {
+  margin: 5px 0;
+}
+
+/* Button styling */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
 button:hover {
-    background: #45a049;
+  background-color: #45a049;
 }
 
+/* Result text */
 .result {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #222;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
 }
+
+/* Truth table styling */
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 15px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-size: 14px; /* smaller size */
+  width: 90%;
+  color: white;
 }
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
+table th, table td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: center;
 }

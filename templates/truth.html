@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Truth Table</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Eligibility Truth Table</h2>
+        <table border="1" cellpadding="10" style="margin:auto;">
+            <tr>
+                <th>Attendance ≥75%</th>
+                <th>Fee Paid</th>
+                <th>Assignment Submitted</th>
+                <th>No Disciplinary Action</th>
+                <th>Eligible?</th>
+            </tr>
+            {% for row in table %}
+            <tr>
+                <td>{{ row.p }}</td>
+                <td>{{ row.q }}</td>
+                <td>{{ row.r }}</td>
+                <td>{{ row.s }}</td>
+                <td>{{ row.eligible }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

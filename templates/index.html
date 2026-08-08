@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Attendance Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <a href="/truth">View Truth Table</a>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Exam Eligibility Checker</h2>
+        <form method="POST">
+            <label>Attendance (%):</label>
+            <input type="number" name="attendance" required><br>
+
+            <label>Fee Paid?</label>
+            <input type="checkbox" name="fee" value="yes"><br>
+
+            <label>Assignment Submitted?</label>
+            <input type="checkbox" name="assignment" value="yes"><br>
+
+            <label>No Disciplinary Action?</label>
+            <input type="checkbox" name="discipline" value="yes"><br>
+            <label>Medical Certificate?</label>
+            <input type="checkbox" name="medical" value="yes"><br>
+
+
+            <button type="submit">Check Eligibility</button>
+        </form>
+
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

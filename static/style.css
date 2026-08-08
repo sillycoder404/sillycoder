@@ -22,11 +22,7 @@ body {
   color: white;
   margin-top: 40px; /* space below marquee */
 }
-.container marquee {
-  margin-bottom: 15px;
-  font-weight: bold;
-  width: 100%;
-}
+
 .container marquee {
   margin-bottom: 15px;
   font-weight: bold;

@@ -1,14 +1,21 @@
-/* Full-screen background */
+/* Full-screen background with gradient + logo watermark */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   height: 100vh;
   display: flex;
-  flex-direction: column; /* allow marquee at top, form below */
+  flex-direction: column; /* allow welcome/marquee at top, form below */
   justify-content: flex-start;
   align-items: center;
-  background: linear-gradient(to right, #061a7b, #8091dd); /* gradient background */
+
+  /* Gradient + Logo */
+  background: linear-gradient(to right, #061a7b, #8091dd),
+              url("christ_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 250px auto; /* adjust logo size */
+  background-blend-mode: overlay; /* makes logo faint like watermark */
 }
 
 /* Centered container for form */
@@ -20,9 +27,19 @@ body {
   max-width: 600px;
   text-align: center;
   color: white;
-  margin-top: 40px; /* space below marquee */
+  margin-top: 40px; /* space below top */
 }
 
+/* Constant welcome message */
+.welcome {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e55389;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6); /* glow effect */
+}
+
+/* Marquee inside the container */
 .container marquee {
   margin-bottom: 15px;
   font-weight: bold;
@@ -39,14 +56,6 @@ body {
   color: rgb(31, 19, 200);
 }
 
-.welcome {
-  font-size: 22px;
-  font-weight: bold;
-  color: #e55389;
-  margin-bottom: 10px;
-}
-
-
 /* Heading */
 h2 {
   color: #fff;
@@ -59,6 +68,7 @@ label {
   display: block;
   margin-top: 10px;
 }
+
 input[type="number"], input[type="checkbox"] {
   margin: 5px 0;
 }
@@ -74,6 +84,7 @@ button {
   font-size: 16px;
   margin-top: 15px;
 }
+
 button:hover {
   background-color: #45a049;
 }
@@ -83,6 +94,7 @@ button:hover {
   margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
+  color: #ffd700; /* gold */
 }
 
 /* Truth table styling */
@@ -93,6 +105,7 @@ table {
   width: 90%;
   color: white;
 }
+
 table th, table td {
   border: 1px solid white;
   padding: 8px;

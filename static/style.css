@@ -1,21 +1,28 @@
-/* Full-screen background with gradient + logo watermark */
+/* Full-screen background with gradient */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   height: 100vh;
   display: flex;
-  flex-direction: column; /* allow welcome/marquee at top, form below */
+  flex-direction: column; /* welcome + marquee at top, form below */
   justify-content: flex-start;
   align-items: center;
+  background: linear-gradient(to right, #061a7b, #8091dd);
+  position: relative; /* allows logo positioning */
+}
 
-  /* Gradient + Logo */
-  background: linear-gradient(to right, #061a7b, #8091dd),
-              url("christ_logo.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 250px auto; /* adjust logo size */
-  background-blend-mode: overlay; /* makes logo faint like watermark */
+/* Logo fixed in top-left corner */
+body::before {
+  content: "";
+  background: url("christ_logo.png") no-repeat;
+  background-size: 120px auto; /* adjust logo size */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.8; /* faint watermark effect */
 }
 
 /* Centered container for form */
@@ -27,16 +34,16 @@ body {
   max-width: 600px;
   text-align: center;
   color: white;
-  margin-top: 40px; /* space below top */
+  margin-top: 100px; /* space below logo */
 }
 
 /* Constant welcome message */
 .welcome {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
   color: #e55389;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6); /* glow effect */
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6);
 }
 
 /* Marquee inside the container */
@@ -101,7 +108,7 @@ button:hover {
 table {
   margin: 20px auto;
   border-collapse: collapse;
-  font-size: 14px; /* smaller size */
+  font-size: 14px;
   width: 90%;
   color: white;
 }

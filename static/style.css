@@ -34,14 +34,22 @@ body {
 }
 
 .container marquee a {
-  color: #049138;
+  color: #c81910;
   text-decoration: none;
   font-size: 18px;
 }
 
 .container marquee a:hover {
-  color: rgb(231, 26, 7);
+  color: rgb(31, 19, 200);
 }
+
+.welcome {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e55389;
+  margin-bottom: 10px;
+}
+
 
 /* Heading */
 h2 {

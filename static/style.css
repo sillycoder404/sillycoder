@@ -45,6 +45,13 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+marquee {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+marquee a:hover {
+    color: yellow;
+}
 
 button:hover {
     background: #45a049;
